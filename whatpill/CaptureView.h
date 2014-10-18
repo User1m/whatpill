@@ -13,6 +13,11 @@
 @end
 
 
-@interface CaptureView : UIViewController
+@interface CaptureView : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+
+- (IBAction)selectPhoto:(UIButton *)sender;
+- (IBAction)takePhoto:(UIButton *)sender;
 
 @end
