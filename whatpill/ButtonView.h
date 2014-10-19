@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ButtonView : UIViewController
+//@protocol ButtonViewDelegate <NSObject>
+//
+//@end
+
+@interface ButtonView : UIViewController 
 
 - (IBAction)launchCapture:(id)sender;
 

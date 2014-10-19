@@ -36,23 +36,26 @@
         //     Get the new view controller using [segue destinationViewController].
         //     Pass the selected object to the new view controller.
     
-//            if ([[segue identifier] isEqualToString:@"ShowCam"]) {
-//                [[segue destinationViewController] setDelegate:self];
-//            }
-//    
+            if ([[segue identifier] isEqualToString:@"ShowCam"]) {
+                CaptureView * capture = segue.destinationViewController;
+            }
+//
     
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+        // Return YES for supported orientations
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
 
 - (IBAction)launchCapture:(CaptureView *)sender {
     
-        //    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@" MainButton" message:@"Button clicked" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
-        //
-        //    [alert show];
+//            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@" MainButton" message:@"Button clicked" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+//        
+//            [alert show];
     
-        //    [self performSegueWithIdentifier:@"ShowCam" sender:sender];
-    
-//    NSMutableDictionary * params =[NSMutableDictionary dictionaryWithObjectsAndKeys: @"480",@"focus[x]", @"640", @"focus[y]", @"27.912109375", @"image_request[altitude]", @"", @"image_request[image]", @"en", @"image_request[language]", @"35.8714220766008", @"image_request[latitude]", @"en_US", @"image_request[locale]", @"14.3583203002251",@"image_request[longitude]", @"http://upload.wikimedia.org/wikipedia/en/2/2d/Mashape_logo.png",@"image_request[remote_image_url]", nil];
+//            [self performSegueWithIdentifier:@"ShowCam" sender:self];
 
     }
 @end

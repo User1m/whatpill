@@ -9,6 +9,7 @@
 #import "CaptureView.h"
 #import "ButtonView.h"
 #import "CamfindApi.h"
+#import "DetailView.h"
 
 @interface CaptureView ()
 
@@ -18,7 +19,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        // Do any additional setup after loading the view.
+
+    
+    _picker = [[UIImagePickerController alloc]init];
+    _picker.delegate = self;
+    _picker.allowsEditing = YES;
     
     if(![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
         UIAlertView * alert = [[[UIAlertView alloc]init] initWithTitle:@"Error"
@@ -45,31 +50,30 @@
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
     
+    if([@"ShowDetail" compare:segue.identifier]==NSOrderedSame){
+        DetailView * detail = segue.destinationViewController;
+        
+            //shortcut to send a parameter to the prepareSegue method.
+        detail.results = self.data;
+    }
     
     
 }
 
 
 - (IBAction)selectPhoto:(id)sender {
+   
+    _picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
-    UIImagePickerController *picker = [[UIImagePickerController alloc]init];
-    picker.delegate = self;
-    picker.allowsEditing = YES;
-    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    
-    [self presentViewController:picker animated:YES completion:nil];
+    [self presentViewController:_picker animated:YES completion:nil];
     
 }
 
 - (IBAction)takePhoto:(id)sender {
     
+    _picker.sourceType = UIImagePickerControllerSourceTypeCamera;
     
-    UIImagePickerController *picker = [[UIImagePickerController alloc]init];
-    picker.delegate = self;
-    picker.allowsEditing = YES;
-    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    
-    [self presentViewController:picker animated:YES completion:nil];
+    [self presentViewController:_picker animated:YES completion:nil];
 }
 
 -(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
@@ -78,9 +82,6 @@
     self.imageView.image = chosenImage;
     
     UIImageWriteToSavedPhotosAlbum(chosenImage, nil, nil, nil);
-    
-        //send image to server
-//    NSMutableDictionary * params =[NSMutableDictionary dictionaryWithObjectsAndKeys:@"en_US", @"image_request[locale]", @"http://cdn.medgadget.com/img/tylenol-now.jpg",@"image_request[remote_image_url]", nil];
     
     [[CamfindApi sharedClient]
      withId:@"getToken" optionalStr:nil onCompletion:^(NSDictionary *json) {
@@ -106,14 +107,20 @@
                  [[CamfindApi sharedClient]withId:@"getName" optionalStr:q onCompletion:^(NSDictionary *json) {
                      
                      NSString * q = json[@"name"];
-                     q = [q stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                     NSArray *array = [q componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
                      
-                     NSLog(@"NAME: %@", q);
+                     NSLog(@"NAME: %@", array[0]);
+                     
+                     q = array[0];
                      
                          //query Mike's api
                      [[CamfindApi sharedClient] withId:nil optionalStr:q onCompletion:^(NSDictionary *json) {
-                     
-                        
+                         
+                         
+                         self.data = json;
+                         
+//                         [self performSegueWithIdentifier:@"ShowDetail" sender:self];
+                         
                      }];
                      
                      
@@ -121,6 +128,7 @@
                  
                  
              });
+             
              
              
          }else{
@@ -142,6 +150,11 @@
 -(void) imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     [picker dismissViewControllerAnimated:YES completion:nil];
+}
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+        // Return YES for supported orientations
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 @end

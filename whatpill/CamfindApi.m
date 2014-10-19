@@ -113,7 +113,7 @@
                 
             }
             
-            NSLog(@"DICT: %@", dict);
+            NSLog(@"TOKEN: %@", dict);
             
             completionBlock(dict);
             
@@ -142,7 +142,7 @@
                 
             }
             
-            NSLog(@"Dic: %@", dict);
+            NSLog(@"NAME: %@", dict);
             
             completionBlock(dict);
             
@@ -151,6 +151,29 @@
     }else{
         
         
+        NSString * str = [NSString stringWithFormat:@"http://104.131.92.64/drugs/%@", oStr];
+        
+        UNIUrlConnection *asyncConnection = [[UNIRest get:^(UNISimpleRequest *request) {
+            [request setUrl:str];
+        }] asJsonAsync:^(UNIHTTPJsonResponse *response, NSError *error) {
+            
+            UNIJsonNode *body = response.body;
+            
+            NSDictionary * dict;
+            if(!body.isArray){
+                dict = body.JSONObject;
+                
+            }else{
+                NSArray * arr = body.JSONArray;
+                NSLog(@"Error, expected NSDictionary but got Array: %@", arr);
+                
+            }
+            
+            NSLog(@"RESULT: %@", dict);
+            completionBlock(dict);
+            
+        }];
+
         
         
     }

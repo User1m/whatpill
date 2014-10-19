@@ -15,6 +15,7 @@
 		F32DB0C619F2EC2300586B63 /* whatpillTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F32DB0C519F2EC2300586B63 /* whatpillTests.m */; };
 		F37A8F1D19F333D40033DD89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F37A8F1B19F333D40033DD89 /* Foundation.framework */; };
 		F37A8F1E19F333D40033DD89 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F37A8F1C19F333D40033DD89 /* UIKit.framework */; };
+		F37A8F2119F380840033DD89 /* DetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = F37A8F2019F380840033DD89 /* DetailView.m */; };
 		F3F3182A19F3002100572059 /* ButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F3182919F3002100572059 /* ButtonView.m */; };
 		F3F3182D19F3038B00572059 /* CaptureView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F3182C19F3038B00572059 /* CaptureView.m */; };
 		F3F3183019F307F700572059 /* CamfindApi.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F3182F19F307F700572059 /* CamfindApi.m */; };
@@ -48,6 +49,8 @@
 		F32DB0C519F2EC2300586B63 /* whatpillTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = whatpillTests.m; sourceTree = "<group>"; };
 		F37A8F1B19F333D40033DD89 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F37A8F1C19F333D40033DD89 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F37A8F1F19F380840033DD89 /* DetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailView.h; sourceTree = "<group>"; };
+		F37A8F2019F380840033DD89 /* DetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailView.m; sourceTree = "<group>"; };
 		F3F3182819F3002100572059 /* ButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonView.h; sourceTree = "<group>"; };
 		F3F3182919F3002100572059 /* ButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonView.m; sourceTree = "<group>"; };
 		F3F3182B19F3038B00572059 /* CaptureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureView.h; sourceTree = "<group>"; };
@@ -131,6 +134,8 @@
 				F3F3182C19F3038B00572059 /* CaptureView.m */,
 				F3F3182E19F307F700572059 /* CamfindApi.h */,
 				F3F3182F19F307F700572059 /* CamfindApi.m */,
+				F37A8F1F19F380840033DD89 /* DetailView.h */,
+				F37A8F2019F380840033DD89 /* DetailView.m */,
 			);
 			path = whatpill;
 			sourceTree = "<group>";
@@ -301,6 +306,7 @@
 				F32DB0AC19F2EC2200586B63 /* main.m in Sources */,
 				F3F3183019F307F700572059 /* CamfindApi.m in Sources */,
 				F3F3182D19F3038B00572059 /* CaptureView.m in Sources */,
+				F37A8F2119F380840033DD89 /* DetailView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
