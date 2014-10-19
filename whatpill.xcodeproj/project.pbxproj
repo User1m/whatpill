@@ -13,6 +13,8 @@
 		F32DB0B719F2EC2300586B63 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F32DB0B619F2EC2300586B63 /* Images.xcassets */; };
 		F32DB0BA19F2EC2300586B63 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F32DB0B819F2EC2300586B63 /* LaunchScreen.xib */; };
 		F32DB0C619F2EC2300586B63 /* whatpillTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F32DB0C519F2EC2300586B63 /* whatpillTests.m */; };
+		F37A8F1D19F333D40033DD89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F37A8F1B19F333D40033DD89 /* Foundation.framework */; };
+		F37A8F1E19F333D40033DD89 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F37A8F1C19F333D40033DD89 /* UIKit.framework */; };
 		F3F3182A19F3002100572059 /* ButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F3182919F3002100572059 /* ButtonView.m */; };
 		F3F3182D19F3038B00572059 /* CaptureView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F3182C19F3038B00572059 /* CaptureView.m */; };
 		F3F3183019F307F700572059 /* CamfindApi.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F3182F19F307F700572059 /* CamfindApi.m */; };
@@ -44,9 +46,8 @@
 		F32DB0BF19F2EC2300586B63 /* whatpillTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = whatpillTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F32DB0C419F2EC2300586B63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F32DB0C519F2EC2300586B63 /* whatpillTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = whatpillTests.m; sourceTree = "<group>"; };
-		F3F3181919F2F5AF00572059 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../parse/Bolts.framework; sourceTree = "<group>"; };
-		F3F3181A19F2F5AF00572059 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../parse/Parse.framework; sourceTree = "<group>"; };
-		F3F3181B19F2F5AF00572059 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = ../parse/ParseFacebookUtils.framework; sourceTree = "<group>"; };
+		F37A8F1B19F333D40033DD89 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F37A8F1C19F333D40033DD89 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F3F3182819F3002100572059 /* ButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonView.h; sourceTree = "<group>"; };
 		F3F3182919F3002100572059 /* ButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonView.m; sourceTree = "<group>"; };
 		F3F3182B19F3038B00572059 /* CaptureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureView.h; sourceTree = "<group>"; };
@@ -60,6 +61,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F37A8F1D19F333D40033DD89 /* Foundation.framework in Frameworks */,
+				F37A8F1E19F333D40033DD89 /* UIKit.framework in Frameworks */,
 				F94A95FBD020D4DC8F474A5A /* libPods-whatpill.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -77,6 +80,8 @@
 		37EEE7E2494598E6BBBBA34B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F37A8F1B19F333D40033DD89 /* Foundation.framework */,
+				F37A8F1C19F333D40033DD89 /* UIKit.framework */,
 				B3EBB7AC3DA775F0F02104E0 /* libPods-whatpill.a */,
 			);
 			name = Frameworks;
@@ -94,9 +99,6 @@
 		F32DB09D19F2EC2200586B63 = {
 			isa = PBXGroup;
 			children = (
-				F3F3181919F2F5AF00572059 /* Bolts.framework */,
-				F3F3181A19F2F5AF00572059 /* Parse.framework */,
-				F3F3181B19F2F5AF00572059 /* ParseFacebookUtils.framework */,
 				F32DB0A819F2EC2200586B63 /* whatpill */,
 				F32DB0C219F2EC2300586B63 /* whatpillTests */,
 				F32DB0A719F2EC2200586B63 /* Products */,

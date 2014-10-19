@@ -54,14 +54,5 @@
     
 //    NSMutableDictionary * params =[NSMutableDictionary dictionaryWithObjectsAndKeys: @"480",@"focus[x]", @"640", @"focus[y]", @"27.912109375", @"image_request[altitude]", @"", @"image_request[image]", @"en", @"image_request[language]", @"35.8714220766008", @"image_request[latitude]", @"en_US", @"image_request[locale]", @"14.3583203002251",@"image_request[longitude]", @"http://upload.wikimedia.org/wikipedia/en/2/2d/Mashape_logo.png",@"image_request[remote_image_url]", nil];
 
-      NSMutableDictionary * params =[NSMutableDictionary dictionaryWithObjectsAndKeys: @"480",@"focus[x]", @"640", @"focus[y]", @"27.912109375", @"image_request[altitude]", @"en", @"image_request[language]", @"35.8714220766008", @"image_request[latitude]", @"en_US", @"image_request[locale]", @"14.3583203002251",@"image_request[longitude]", @"http://upload.wikimedia.org/wikipedia/en/2/2d/Mashape_logo.png",@"image_request[remote_image_url]", nil];
-    
-    [[CamfindApi sharedClient]
-     commandWithParams:params
-     onCompletion:^(NSDictionary *json) {
-         
-         NSLog(@"DATA: %@", json);
-     }];
-    
-}
+    }
 @end
