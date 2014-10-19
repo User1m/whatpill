@@ -94,7 +94,8 @@
     if([call isEqualToString:@"getToken"]){
         
         NSDictionary *headers = @{@"X-Mashape-Key": @"EzqC4zIoYrmshqcchE6zPHxqpgx9p1LP5iNjsnqHSHy8QUUDRl"};
-        NSDictionary *parameters = @{ @"image_request[locale]": @"en_US",@"image_request[remote_image_url]": @"http://cdn.medgadget.com/img/tylenol-now.jpg"};
+        NSDictionary *parameters = @{ @"image_request[locale]": @"en_US",@"image_request[remote_image_url]": @"http://i.walmartimages.com/i/p/00/30/04/50/29/0030045029512_500X500.jpg"};
+        
         UNIUrlConnection *asyncConnection = [[UNIRest post:^(UNISimpleRequest *request) {
             [request setUrl:host];
             [request setHeaders:headers];
@@ -127,6 +128,7 @@
         NSLog(@"String 1: %@", str);
         
         NSDictionary *headers = @{@"X-Mashape-Key": @"EzqC4zIoYrmshqcchE6zPHxqpgx9p1LP5iNjsnqHSHy8QUUDRl"};
+        
         UNIUrlConnection *asyncConnection = [[UNIRest get:^(UNISimpleRequest *request) {
             [request setUrl:str];
             [request setHeaders:headers];

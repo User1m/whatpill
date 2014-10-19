@@ -36,26 +36,31 @@
         //     Get the new view controller using [segue destinationViewController].
         //     Pass the selected object to the new view controller.
     
-            if ([[segue identifier] isEqualToString:@"ShowCam"]) {
-                CaptureView * capture = segue.destinationViewController;
-            }
-//
+    if ([[segue identifier] isEqualToString:@"ShowCam"]) {
+        CaptureView * capture = segue.destinationViewController;
+    }
+        //
     
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-        // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+-(BOOL) shouldAutorotate{
+    return FALSE;
 }
+
+
+    //- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+    //{
+    //        // Return YES for supported orientations
+    //    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    //}
 
 - (IBAction)launchCapture:(CaptureView *)sender {
     
-//            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@" MainButton" message:@"Button clicked" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
-//        
-//            [alert show];
+        //            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@" MainButton" message:@"Button clicked" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        //
+        //            [alert show];
     
-//            [self performSegueWithIdentifier:@"ShowCam" sender:self];
-
-    }
+        //            [self performSegueWithIdentifier:@"ShowCam" sender:self];
+    
+}
 @end

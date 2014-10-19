@@ -21,12 +21,23 @@
 
 @implementation CaptureView
 
+-(BOOL) shouldAutorotate{
+    return FALSE;
+}
+
 
 -(void) viewDidAppear:(BOOL)animated{
     
     _picker = [[UIImagePickerController alloc]init];
     _picker.delegate = self;
     _picker.allowsEditing = YES;
+    
+//    [_takeBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    _takeBtn.backgroundColor = [UIColor redColor];
+    _selectBtn.backgroundColor = [UIColor redColor];
+    _goBtn.backgroundColor = [UIColor redColor];
+//    [_takeBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+
     
 }
 
@@ -42,14 +53,6 @@
         
         [alert show];
     }
-    
-        //    _takeBtn.backgroundColor = [UIColor turquoiseColor];
-        //    _takeBtn.shadowColor = [UIColor greenSeaColor];
-        //    _takeBtn.shadowHeight = 3.0f;
-        //    _takeBtn.cornerRadius = 6.0f;
-        //    _takeBtn.titleLabel.font = [UIFont boldFlatFontOfSize:16];
-        //    [ _takeBtn setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
-        //    [ _takeBtn setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
     
 }
 
@@ -184,12 +187,7 @@
 {
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-        // Return YES for supported orientations
-        //    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-    return UIInterfaceOrientationMaskPortrait;
-}
+
 
 
 @end

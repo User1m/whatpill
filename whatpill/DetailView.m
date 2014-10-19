@@ -17,16 +17,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
         // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor redColor];
     
     NSString * uses = self.results[@"drug"][@"uses"];
     NSString * name = self.results[@"drug"][@"name"];
-    
     
     [self.labelTitle setText: name];
     [self.detailsInfo setText: uses];
         //[self.labelTitle setText:self.results[@"name"]];
         //[self.detailsInfo setText:self.results[@"uses"]];
+    
+    
     
     NSLog(@"Passed: %@", [self results]);
     
@@ -37,6 +38,11 @@
         // Dispose of any resources that can be recreated.
 }
 
+-(BOOL) shouldAutorotate{
+    return FALSE;
+}
+
+
 /*
  #pragma mark - Navigation
  
@@ -46,10 +52,5 @@
  // Pass the selected object to the new view controller.
  }
  */
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-        // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
 
 @end
