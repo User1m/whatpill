@@ -10,6 +10,10 @@
 #import "ButtonView.h"
 #import "CamfindApi.h"
 #import "DetailView.h"
+#import <QuartzCore/QuartzCore.h>
+#import <FlatUIKit.h>
+#import "SVProgressHUD.h"
+
 
 @interface CaptureView ()
 
@@ -39,6 +43,13 @@
         [alert show];
     }
     
+        //    _takeBtn.backgroundColor = [UIColor turquoiseColor];
+        //    _takeBtn.shadowColor = [UIColor greenSeaColor];
+        //    _takeBtn.shadowHeight = 3.0f;
+        //    _takeBtn.cornerRadius = 6.0f;
+        //    _takeBtn.titleLabel.font = [UIFont boldFlatFontOfSize:16];
+        //    [ _takeBtn setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
+        //    [ _takeBtn setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
     
 }
 
@@ -87,18 +98,21 @@
     
 }
 
--(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
-    
+-(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
     [self takeBtn].hidden = true;
     self.selectBtn.hidden = true;
+    
     
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     self.imageView.image = chosenImage;
     
     UIImageWriteToSavedPhotosAlbum(chosenImage, nil, nil, nil);
     
+    
     [[CamfindApi sharedClient]
      withId:@"getToken" optionalStr:nil onCompletion:^(NSDictionary *json) {
+         
              //completion
          if(![json objectForKey:@"error"]){
              
@@ -109,44 +123,9 @@
                               cancelButtonTitle:@"Great!"
                               otherButtonTitles:nil, nil] show];
              
-             NSString * q = json[@"token"];
+             _strParam = json[@"token"];
              
-             NSLog(@"Token: %@", q);
-             
-                 //
-             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 25.0 * NSEC_PER_SEC ); // where 2.0 as a second * nano seconds
-             dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
-                 
-                     //get item name
-                 [[CamfindApi sharedClient]withId:@"getName" optionalStr:q onCompletion:^(NSDictionary *json) {
-                     
-                     NSString * q = json[@"name"];
-                     NSArray *array = [q componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-                     
-                     NSLog(@"NAME: %@", array[0]);
-                     
-                     q = array[0];
-                     
-                         //query Mike's api
-                     [[CamfindApi sharedClient] withId:nil optionalStr:q onCompletion:^(NSDictionary *json) {
-                         
-                         
-                         self.data = json;
-                         self.goBtn.hidden = false;
-                         
-                         
-                             //                         DetailView *detailVC = [[DetailView alloc] init];
-                             //                         [self presentViewController:detailVC animated:YES completion:nil];
-                             //
-                     }];
-                     
-                     
-                 }];
-                 
-                 
-             });
-             
-             
+             NSLog(@"Token: %@", _strParam);
              
          }else{
              
@@ -158,8 +137,45 @@
              [alert show];
          }
          
-         
      }];
+    
+    
+    [SVProgressHUD show];
+        //
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 25.0 * NSEC_PER_SEC ); // where 2.0 as a second * nano seconds
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
+        
+            //get item name
+        [[CamfindApi sharedClient]withId:@"getName" optionalStr:[self strParam] onCompletion:^(NSDictionary *json) {
+            
+            NSString * q = json[@"name"];
+            NSArray *array = [q componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            
+            NSLog(@"NAME: %@", array[0]);
+            
+            [SVProgressHUD dismiss];
+            _strParam = array[0];
+            
+            
+            NSLog(@"param1: %@",_strParam);
+            
+        }];
+        
+            //query Mike's api
+        [[CamfindApi sharedClient] withId:nil optionalStr:_strParam onCompletion:^(NSDictionary *json) {
+            
+            NSLog(@"param2: %@",_strParam);
+            
+            self.data = json;
+            self.goBtn.hidden = false;
+            
+                //
+                //                                          DetailView *detailVC = [[DetailView alloc] init];
+                //                                          [self presentViewController:detailVC animated:YES completion:nil];
+                //
+        }];
+        
+    });
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
@@ -171,7 +187,8 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
         // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+        //    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 

@@ -124,6 +124,8 @@
         
         NSString * str = [NSString stringWithFormat:@"https://camfind.p.mashape.com/image_responses/%@",oStr];
         
+        NSLog(@"String 1: %@", str);
+        
         NSDictionary *headers = @{@"X-Mashape-Key": @"EzqC4zIoYrmshqcchE6zPHxqpgx9p1LP5iNjsnqHSHy8QUUDRl"};
         UNIUrlConnection *asyncConnection = [[UNIRest get:^(UNISimpleRequest *request) {
             [request setUrl:str];
@@ -152,6 +154,8 @@
         
         
         NSString * str = [NSString stringWithFormat:@"http://104.131.92.64/drugs/%@", oStr];
+        
+        NSLog(@"String 2: %@", str);
         
         UNIUrlConnection *asyncConnection = [[UNIRest get:^(UNISimpleRequest *request) {
             [request setUrl:str];

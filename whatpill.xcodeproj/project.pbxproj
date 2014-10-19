@@ -16,6 +16,8 @@
 		F37A8F1D19F333D40033DD89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F37A8F1B19F333D40033DD89 /* Foundation.framework */; };
 		F37A8F1E19F333D40033DD89 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F37A8F1C19F333D40033DD89 /* UIKit.framework */; };
 		F37A8F2119F380840033DD89 /* DetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = F37A8F2019F380840033DD89 /* DetailView.m */; };
+		F37A8F3619F3F3D80033DD89 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F37A8F3319F3F3D80033DD89 /* SVProgressHUD.bundle */; };
+		F37A8F3719F3F3D80033DD89 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F37A8F3519F3F3D80033DD89 /* SVProgressHUD.m */; };
 		F3F3182A19F3002100572059 /* ButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F3182919F3002100572059 /* ButtonView.m */; };
 		F3F3182D19F3038B00572059 /* CaptureView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F3182C19F3038B00572059 /* CaptureView.m */; };
 		F3F3183019F307F700572059 /* CamfindApi.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F3182F19F307F700572059 /* CamfindApi.m */; };
@@ -51,6 +53,10 @@
 		F37A8F1C19F333D40033DD89 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F37A8F1F19F380840033DD89 /* DetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailView.h; sourceTree = "<group>"; };
 		F37A8F2019F380840033DD89 /* DetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailView.m; sourceTree = "<group>"; };
+		F37A8F3219F3F3D80033DD89 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		F37A8F3319F3F3D80033DD89 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		F37A8F3419F3F3D80033DD89 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		F37A8F3519F3F3D80033DD89 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		F3F3182819F3002100572059 /* ButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonView.h; sourceTree = "<group>"; };
 		F3F3182919F3002100572059 /* ButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonView.m; sourceTree = "<group>"; };
 		F3F3182B19F3038B00572059 /* CaptureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureView.h; sourceTree = "<group>"; };
@@ -102,6 +108,7 @@
 		F32DB09D19F2EC2200586B63 = {
 			isa = PBXGroup;
 			children = (
+				F37A8F3119F3F3D80033DD89 /* SVProgressHUD */,
 				F32DB0A819F2EC2200586B63 /* whatpill */,
 				F32DB0C219F2EC2300586B63 /* whatpillTests */,
 				F32DB0A719F2EC2200586B63 /* Products */,
@@ -164,6 +171,18 @@
 				F32DB0C419F2EC2300586B63 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F37A8F3119F3F3D80033DD89 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				F37A8F3219F3F3D80033DD89 /* SVProgressHUD-Prefix.pch */,
+				F37A8F3319F3F3D80033DD89 /* SVProgressHUD.bundle */,
+				F37A8F3419F3F3D80033DD89 /* SVProgressHUD.h */,
+				F37A8F3519F3F3D80033DD89 /* SVProgressHUD.m */,
+			);
+			name = SVProgressHUD;
+			path = "../../../../Desktop/SVProgressHUD-master/SVProgressHUD";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +270,7 @@
 				F32DB0B519F2EC2300586B63 /* Main.storyboard in Resources */,
 				F32DB0BA19F2EC2300586B63 /* LaunchScreen.xib in Resources */,
 				F32DB0B719F2EC2300586B63 /* Images.xcassets in Resources */,
+				F37A8F3619F3F3D80033DD89 /* SVProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +324,7 @@
 				F32DB0AF19F2EC2200586B63 /* AppDelegate.m in Sources */,
 				F3F3182A19F3002100572059 /* ButtonView.m in Sources */,
 				F32DB0AC19F2EC2200586B63 /* main.m in Sources */,
+				F37A8F3719F3F3D80033DD89 /* SVProgressHUD.m in Sources */,
 				F3F3183019F307F700572059 /* CamfindApi.m in Sources */,
 				F3F3182D19F3038B00572059 /* CaptureView.m in Sources */,
 				F37A8F2119F380840033DD89 /* DetailView.m in Sources */,

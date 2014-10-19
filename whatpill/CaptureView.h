@@ -18,6 +18,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *selectBtn;
 @property (strong, nonatomic) IBOutlet UIButton *takeBtn;
 
+@property (strong, nonatomic) NSString * strParam;
+
 - (IBAction)selectPhoto:(UIButton *)sender;
 - (IBAction)takePhoto:(UIButton *)sender;
 - (IBAction)goToDetail:(UIButton *)sender;

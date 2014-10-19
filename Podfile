@@ -7,5 +7,6 @@ target "whatpill" do
 
 pod 'AFNetworking', '2.2.1'
 pod 'Unirest', '~> 1.1.3'
+pod 'FlatUIKit'
 
 end
