@@ -17,13 +17,17 @@
 
 @implementation CaptureView
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
 
+-(void) viewDidAppear:(BOOL)animated{
     
     _picker = [[UIImagePickerController alloc]init];
     _picker.delegate = self;
     _picker.allowsEditing = YES;
+    
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
     if(![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
         UIAlertView * alert = [[[UIAlertView alloc]init] initWithTitle:@"Error"
@@ -51,6 +55,7 @@
         // Pass the selected object to the new view controller.
     
     if([@"ShowDetail" compare:segue.identifier]==NSOrderedSame){
+            //create an instance of the view you're going to then set it as the seque.destinationViewController
         DetailView * detail = segue.destinationViewController;
         
             //shortcut to send a parameter to the prepareSegue method.
@@ -62,7 +67,7 @@
 
 
 - (IBAction)selectPhoto:(id)sender {
-   
+    
     _picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
     [self presentViewController:_picker animated:YES completion:nil];
@@ -74,6 +79,12 @@
     _picker.sourceType = UIImagePickerControllerSourceTypeCamera;
     
     [self presentViewController:_picker animated:YES completion:nil];
+}
+
+- (IBAction)goToDetail:(id)sender {
+    
+        //    [self performSegueWithIdentifier:@"ShowDetail" sender:self];
+    
 }
 
 -(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
@@ -118,9 +129,12 @@
                          
                          
                          self.data = json;
+                         self.goBtn.hidden = false;
                          
-//                         [self performSegueWithIdentifier:@"ShowDetail" sender:self];
                          
+                             //                         DetailView *detailVC = [[DetailView alloc] init];
+                             //                         [self presentViewController:detailVC animated:YES completion:nil];
+                             //
                      }];
                      
                      
@@ -156,5 +170,6 @@
         // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
 
 @end

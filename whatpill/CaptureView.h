@@ -14,8 +14,10 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) NSDictionary * data;
 @property (strong, nonatomic) UIImagePickerController * picker;
+@property (strong, nonatomic) IBOutlet UIButton *goBtn;
 
 - (IBAction)selectPhoto:(UIButton *)sender;
 - (IBAction)takePhoto:(UIButton *)sender;
+- (IBAction)goToDetail:(UIButton *)sender;
 
 @end

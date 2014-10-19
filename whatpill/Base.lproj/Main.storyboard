@@ -1,25 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Z0S-93-RST">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="b2D-II-LZU">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="7wL-Np-bkY">
-            <objects>
-                <navigationController id="NhR-7Z-u3T" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WGR-sz-c6U">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="FLL-ma-4bD">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kx8-LE-qzy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-154" y="360"/>
-        </scene>
         <!--Button View-->
         <scene sceneID="rEV-gh-oFL">
             <objects>
@@ -35,16 +20,17 @@
                                 <state key="normal" title="What pill is this?"/>
                                 <connections>
                                     <action selector="launchCapture:" destination="Z0S-93-RST" eventType="touchUpInside" id="gWc-fq-dqG"/>
-                                    <segue destination="t6k-Vt-nTe" kind="modal" identifier="ShowCam" id="Y5h-N9-Ly9"/>
+                                    <segue destination="t6k-Vt-nTe" kind="push" identifier="ShowCam" id="Y5h-N9-Ly9"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="h9w-Ox-9uv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eeS-S9-A5j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="285" y="360"/>
+            <point key="canvasLocation" x="775" y="360"/>
         </scene>
         <!--Capture View-->
         <scene sceneID="NBg-Of-DD7">
@@ -72,23 +58,35 @@
                                 </state>
                                 <connections>
                                     <action selector="selectPhoto:" destination="t6k-Vt-nTe" eventType="touchUpInside" id="HO3-wl-kji"/>
-                                    <segue destination="l0e-2k-noD" kind="modal" identifier="ShowDetail" id="tO7-pw-htc"/>
                                 </connections>
                             </button>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="RVF-YQ-UNw">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="391"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="d09-3I-aGe">
+                                <rect key="frame" x="145" y="502" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="GO!">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToDetail:" destination="t6k-Vt-nTe" eventType="touchUpInside" id="6wp-fi-ggW"/>
+                                    <segue destination="l0e-2k-noD" kind="push" identifier="ShowDetail" id="I0x-zQ-9RM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="jQF-39-km9"/>
                     <connections>
+                        <outlet property="goBtn" destination="d09-3I-aGe" id="nIx-CI-AOw"/>
                         <outlet property="imageView" destination="RVF-YQ-UNw" id="Gsa-zY-GZF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12I-QV-UZu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="715" y="360"/>
+            <point key="canvasLocation" x="1247" y="360"/>
         </scene>
         <!--Detail View-->
         <scene sceneID="kcB-6g-giT">
@@ -99,14 +97,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="c5V-CM-Gwe">
-                                <rect key="frame" x="99" y="11" width="123" height="38"/>
+                                <rect key="frame" x="99" y="89" width="123" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="8as-ft-1JA">
-                                <rect key="frame" x="0.0" y="57" width="320" height="373"/>
+                                <rect key="frame" x="0.0" y="153" width="320" height="280"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
@@ -124,7 +122,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Za7-6k-hYS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1160" y="360"/>
+            <point key="canvasLocation" x="1692" y="360"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="F9b-xd-I9m">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b2D-II-LZU" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="O55-Co-VTz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Z0S-93-RST" kind="relationship" relationship="rootViewController" id="K4u-QG-9Lp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AE7-1w-FXO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="243" y="360"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
